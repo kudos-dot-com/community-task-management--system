@@ -1,0 +1,92 @@
+// this collection is for the campus ambasador registed by admin
+const mongoose=require('mongoose');
+const {ObjectId}=mongoose.Schema.Types;
+const countrySchema= new mongoose.Schema({
+    status:{
+        type:String,
+        default:'Active',
+        required:false
+    },
+    addedByAdmin:{
+        required:false,
+        type:ObjectId,
+        ref:"User"
+    },
+    addedByOrg:{
+        required:false,
+        type:ObjectId,
+        ref:"Organisation"
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    dob:{
+        type:String,
+        required:true
+    },
+    number:{
+        type:String,
+        required:true
+    },
+    city:{
+        type:String,
+        required:true
+    },
+    pin:{
+        type:String,
+        required:true
+    },
+    state:{
+        type:String,
+        required:true
+    },
+    country:{
+        type:String,
+        required:true
+    },
+    college:{
+        type:String,
+        required:true,
+        default:"others"
+    },
+    facebook:{
+        type:String,
+        required:false
+    },
+    linkedin:{
+        type:String,
+        required:false
+    },
+    instagram:{
+        type:String,
+        required:false
+    },
+    residence:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    role:{
+        type:String,
+        required:true,
+        enum:["campus-ambassador","voulenteer","country-ambassador","organisation","admin"]
+    }
+},
+{
+    timestamps:true
+}
+);
+
+mongoose.model('Country',countrySchema);

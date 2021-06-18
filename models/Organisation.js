@@ -1,0 +1,76 @@
+// this collection is for the campus ambasador registed by admin
+const mongoose=require('mongoose');
+const orgSchema= new mongoose.Schema({
+    status:{
+        type:String,
+        default:'Active',
+        required:false
+    },
+    name:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    website:{
+        type:String,
+        required:true
+    },
+    number:{
+        type:String,
+        required:true
+    },
+    state:{
+        type:String,
+        required:true
+    },
+    country:{
+        type:String,
+        required:true
+    },
+    type:{
+        type:String,
+        required:true
+    },
+    description:{
+        type:String,
+        required:true
+    },
+    scope:{
+        type:String,
+        required:true
+    },
+    city:{
+        type:String,
+        required:true
+    },
+    facebook:{
+        type:String,
+        required:false
+    },
+    linkedin:{
+        type:String,
+        required:false
+    },
+    instagram:{
+        type:String,
+        required:false
+    },
+    role:{
+        type:String,
+        required:true,
+        enum:["campus-ambassador","voulenteer","country-ambassador","organisation","admin"]
+    }
+},
+{
+    timestamps:true
+}
+);
+
+mongoose.model('Organisation',orgSchema);
